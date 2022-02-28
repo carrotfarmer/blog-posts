@@ -10,7 +10,7 @@ Link: [https://cubedeck.netlify.app](https://cubedeck.netlify.app)
 
 # The Problem 🧮
 
-Lemme explain the purpose of the app by telling you the problem that I wanted to solve. I loved to solve Rubik’s cubes back in 2019 when I was in sixth grade. But after the pandemic started, I sorta just stopped. And I picked it back up now, in 2022, but I couldn’t remember how to solve the cube 💀😭. Once I re-learned, I quickly started losing interest since I couldn’t compete with my friends because we were not meeting physically. The most fun element of cubing was taken out, so I was feeling extremely reluctant to practice my solving. And I also had no way to track my average solve time, my PB (Personal Best) and in general, I had no medium to store all my solve times, which prevented me from keeping track of my progress. So I thought to myself, why not create a simple web app, which you can use to track all of your solve times easily and also create groups with your friends to compete?? And that’s why I made Cubedeck!
+Lemme explain the purpose of the app by telling you the problem that I wanted to solve. I loved to solve Rubik’s cubes back in 2019 when I was in sixth grade. But after the pandemic started, I sorta just stopped. And I picked it back up now, in 2022, but I couldn’t remember how to solve the cube 💀😭. Once I re-learned, I quickly started losing interest since I couldn’t compete with my friends because we were not meeting physically. The most fun element of cubing was taken out, so I was feeling extremely reluctant to practice. There was no way to track my average solve time, my PB (Personal Best) and in general, I had no medium to store all my solve times, which prevented me from keeping track of my progress. This led me to create a simple web app, which you can use to track all of your solve times easily and also create groups with your friends to compete!
 
 # Features 💫
 
@@ -34,7 +34,7 @@ And after this, you would be able to view custom statistics like average solve t
 
 ## Groups 👥
 
-A group is meant to create a competitive environment for a user and their friends, where they can add their solve times and they can also view their friend’s solves, to create some sort of competition. To game-ify this feature more, I created a leaderboard in a group’s page that displays the top solves in a group. A group also has stats like the member with the highest average, group average, etc. All of this is done to recreate a scenario, where friends are physically meeting and solving their cubes.
+A group is meant to create a competitive environment for a user and their friends, where they can add their solve times and they can also view their friend’s solves, and create competition within a group. To gamify this feature more, a leader board was created on a group’s page which will display the top solves in a group. A group also has stats like the member with the highest average, group average, etc. All of this is done to recreate a scenario, where friends are physically meeting and solving their cubes.
 
 A group contains:
 
@@ -101,6 +101,6 @@ Since this was the first time I worked on a project for more than 24 hours, I fe
 - [GitHub Repo](https://github.com/carrotfarmer/cubedeck)
 - [Cubedeck Live App](https://cubedeck.netlify.app)
 
-And that’s it for this post, I’ll see you in the next one (which may or may not come after a month). 🖖
+And that’s it for this post, I’ll see you in the next one (which may come after a month. ~~or 6~~). 🖖
 
 ![https://c.tenor.com/ewKr2mtB_dAAAAAS/good-luck.gif](https://c.tenor.com/ewKr2mtB_dAAAAAS/good-luck.gif) 
