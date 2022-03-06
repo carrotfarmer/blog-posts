@@ -2,7 +2,7 @@
 
 Yes, dear reader, you read that right! You can build beautiful CLIs with React using an awesome library called [React Ink](https://github.com/vadimdemedes/ink)!
 
-The way this library works is best said summed up by the README of the repo:
+The way this library works is best summed up by the README of the repo:
 
 > Ink provides the same component-based UI building experience that React offers in the browser, but for command-line apps. It uses [Yoga](https://github.com/facebook/yoga) to build Flexbox layouts in the terminal, so most CSS-like props are available in Ink as well. If you are already familiar with React, you already know Ink. Since Ink is a React renderer, it means that all features of React are supported. Head over to [React](https://reactjs.org/) website for documentation on how to use it. Only Ink's methods will be documented in this readme.
 
