@@ -58,46 +58,37 @@ Storing JWTs in `localStorage` can make the app vulnerable to what's known as an
 It is a type of code injection where malicious code is injected into a website using another web application.  
 
 ## Pros and Cons of using Sessions
-- **More Control/Flexibility**
-
+### More Control/Flexibility
 Sessions give the developer more control over the app. If there is a breach, then you can immediately delete the session from the store, whereas blacklisting JWTs is tricky, and in the worst-case scenario, you would just have to wait for the token to expire.
 
-- **Easy to Implement**
-
-
+### Easy to Implement
 Since session IDs are stored in cookies, there is no need to provide any request headers. This is because cookies are supported automatically by browsers and all cookies are sent as part of the request to all websites. It also reduces bandwidth usage when compared to JWT, since there is no need to send the token back and forth for every request made by the client. Cookies can also introduce a vulnerability for **CSRF (Cross-Site Request Forgery) attacks**. This happens when requests through a malicious site force authenticated users on other websites to submit a request to the malicious website and get access to their credentials. This can be prevented by setting the [`SameSite`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) cookie option to **lax**. 
 SameSite decides if the cookie should be sent only to the origin website. 
 
-- **Security**
-
+### Security
 Session stores are not public and are stored remotely on a server, hence rendering the session data to be safe. In the case of JWTs, the tokens are relayed on every request and can be intercepted. Sessions are, in most cases, safer than using JWTs
 
-- **Scalability Issues**
-
-
+### Scalability Issues
 Sessions can be a pain to scale because there is a requirement for a place to host the session store. You will need to store more data on the store when more users authenticate and this will take a load on the server which can be expensive depending on what hosting solution you go with.
 
 ## Pros and Cons of using JWTs
-- **Scalable**
-
+### Scalable
 Since JWTs store nothing on the server, it is stateless and scalable. As the user base grows, JWTs can scale since there is no overhead of requiring a store on the server.
 
-- **You can "not-worry" about a lot of stuff**:
+### You can "not-worry" about a lot of stuff
 
   - **CORS**: Cross-Origin Resource Sharing
   - Domain Migration
   - Portability: With sessions, you need a cookie store that only browsers have. You can use tokens while making clients for other devices too. But then you would have to resort to a different place to store the token on the client.
 
-- **You can't truly log a user out**
-
-
+### You can't truly log a user out
 You'd normally log a user out by removing the cookie with the access token in it. But this doesn't ensure the **validity of the access token**. If an attacker gets hold of the token, he/she can still make requests to the server and do bad stuff. To prevent such things, you have to implement a blacklist system, where if you get a report of a stolen token, you add that token to a blacklist, and any request with a blacklisted token will be blocked. Simply removing
 the token from the hands of the client doesn't solve the problem. You could introduce a refresh token, but then again that's another token to deal with ;)
 
-- They are heavy
+### They are heavy
 If you store a lot of junk on your token, you may exceed the size limit for a cookie. And I already told you why storing them on `localStorage` is probably a bad idea.. (CSRF *wink, wink*)
 
-- Security
+### Security
 JWTs are simply put, *not* secure. They can easily be intercepted and decrypted (Literally all you have to do is paste the token into a site like [this](https://jwt.io) and you can get the user data inside it). This is exactly why you should never store any sensitive data in a token. Just store the required credentials that will allow the server to know who the user is. Something simple like a `userId`.
 
 ## Which one should you use?
