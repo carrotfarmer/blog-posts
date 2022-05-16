@@ -66,7 +66,9 @@ Since session IDs are stored in cookies, there is no need to provide any request
 SameSite decides if the cookie should be sent only to the origin website. 
 
 ### Security
-Session stores are not public and are stored remotely on a server, hence rendering the session data to be safe. In the case of JWTs, the tokens are relayed on every request and can be intercepted. Sessions are, in most cases, safer than using JWTs
+Edit: As mentioned in the comments by [a v](https://hashnode.com/@alve), storing JWTs in cookies would render it to be almost as safe as session credentials stored in cookies. The security difference emerges when you store JWTs in other stores such as `localStorage`.
+
+Session stores are not public and are stored remotely on a server, hence rendering the session data to be safe. In the case of JWTs, the tokens are relayed on every request and can be intercepted. Sessions are, in most cases, safer than using JWTs.
 
 ### Scalability Issues
 Sessions can be a pain to scale because there is a requirement for a place to host the session store. You will need to store more data on the store when more users authenticate and this will take a load on the server which can be expensive depending on what hosting solution you go with.
@@ -89,7 +91,7 @@ the token from the hands of the client doesn't solve the problem. You could intr
 If you store a lot of junk on your token, you may exceed the size limit for a cookie. And I already told you why storing them on `localStorage` is probably a bad idea.. (CSRF *wink, wink*)
 
 ### Security
-JWTs are simply put, *not* secure. They can easily be intercepted and decrypted (Literally all you have to do is paste the token into a site like [this](https://jwt.io) and you can get the user data inside it). This is exactly why you should never store any sensitive data in a token. Just store the required credentials that will allow the server to know who the user is. Something simple like a `userId`.
+JWTs are simply put, *not* secure and they are not the place to store sensitive user data. They can easily be intercepted and decrypted (Literally all you have to do is paste the token into a site like [this](https://jwt.io) and you can get the user data inside it). This is exactly why you should never store any sensitive data in a token. Just store the required credentials that will allow the server to know who the user is. Something simple like a `userId`.
 
 ## Which one should you use?
 It's all your choice. I prefer to use sessions since they are easy to implement (I don't have to worry about refresh tokens, blacklists, etc.) and are more secure (only the session ID is sent through an HTTP-Only, SameSite cookie). I don't find scalability to be an issue, especially with platforms like [Railway](https://railway.app) providing a good free plan (not sponsored!). If you have a large user base, and you are willing to spend a bit of money on a VPS or a paid cloud service, definitely go with sessions. Before I wrap up, here's a list of resources that can help you with implementing auth and going a bit deeper into the topics discussed in this article.
