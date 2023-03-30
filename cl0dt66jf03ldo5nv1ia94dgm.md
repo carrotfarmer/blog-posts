@@ -1,4 +1,14 @@
-## 🧑‍💻 Building CLIs with React Ink
+---
+title: "🧑‍💻 Building CLIs with React Ink"
+datePublished: Sat Mar 05 2022 12:15:03 GMT+0000 (Coordinated Universal Time)
+cuid: cl0dt66jf03ldo5nv1ia94dgm
+slug: building-clis-with-react-ink
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1646482447361/58i2tPOdE.png
+tags: javascript, cli, reactjs, typescript
+
+---
+
+**\[EDIT (30th March 2023)\]: React ink has been renamed to** [**term.ink**](https://term.ink)**\]**
 
 Yes, dear reader, you read that right! You can build beautiful CLIs with React using an awesome library called [React Ink](https://github.com/vadimdemedes/ink)!
 
@@ -14,13 +24,15 @@ In this post, we’ll explore how Ink works by building a cool little CLI, that 
 
 This is extremely simple and straightforward.
 
-- First, you will create an empty directory
+* First, you will create an empty directory
+    
 
 ```bash
 mkdir pokecli && cd pokecli
 ```
 
-- Then you can run the `create-ink-app` command
+* Then you can run the `create-ink-app` command
+    
 
 ```bash
 npx create-ink-app --typescript
@@ -28,7 +40,7 @@ npx create-ink-app --typescript
 
 In this post, I will use TypeScript, but you can follow along with plain JS too.
 
-If we take a look at what this command has generated, we can see a very basic file structure:
+If we take a look at what this command has generated, we can see a fundamental file structure:
 
 ```bash
 pokecli
@@ -59,7 +71,7 @@ module.exports = App;
 export default App;
 ```
 
-This is a normal App component like you would see in plain React. A prop `name` is passed on to this component which is set to a default value of Stranger. And a message of “Hello {name}” is rendered. Note that the `Text` component comes from `ink`. It can be used to style many aspects of the text, like the color, background color, etc. `ink` uses a library called [chalk](https://github.com/chalk/chalk) to do this.
+This is a normal App component as you would see in plain React. A prop `name` is passed on to this component which is set to a default value of Stranger. And a message of “Hello {name}” is rendered. Note that the `Text` component comes from `ink`. It can style many aspects of the text, like the color, background color, etc. `ink` uses a library called [chalk](https://github.com/chalk/chalk) to do this.
 
 `source/cli.tsx`
 
@@ -100,7 +112,7 @@ This file is the entry point of the CLI application. The `meow` function display
 pokecli --name=Charmander
 ```
 
-We can see that this arg has an explicit type of `string`. Since, we now have a basic understanding of how Ink works, let’s get on to creating our CLI!
+We can see that this arg has an explicit type of `string`. Since we now have a basic understanding of how Ink works, let’s get on to creating our CLI!
 
 # Running the CLI 🏃
 
@@ -118,13 +130,13 @@ pokecli --name=Charmander
 
 And we’ll be able to see our output!
 
-![https://i.imgur.com/ZjXGj8G.png](https://i.imgur.com/ZjXGj8G.png)
+![https://i.imgur.com/ZjXGj8G.png](https://i.imgur.com/ZjXGj8G.png align="left")
 
 You can also run pokecli with the `--help` flag to see the output of what’s passed to the `meow` function in `cli.tsx`
 
 # Building our CLI 🛠️
 
-Let’s first make a simple function to fetch the data of a pokemon through it’s name, in `ui.tsx`.
+Let’s first make a simple function to fetch the data of a pokemon through its name, in `ui.tsx`.
 
 We will do this using a library called [axios](https://axios-http.com/).
 
@@ -147,7 +159,7 @@ const pokemon = (name: string): void => {
 
 And if you test this out, we’ll be able to see the data associated with what is passed in the CLI name flag.
 
-The problem with this is that, TypeScript doesn’t know the properties that exist in this data object. So let’s declare interfaces for the API response.
+The problem with this is that TypeScript doesn’t know the properties that exist in this data object. So let’s declare interfaces for the API response.
 
 ```ts
 interface Type {
@@ -176,7 +188,7 @@ interface PokemonData {
 
 Ref:
 
-![https://i.imgur.com/V8GI4cC.png](https://i.imgur.com/V8GI4cC.png)
+![https://i.imgur.com/V8GI4cC.png](https://i.imgur.com/V8GI4cC.png align="left")
 
 Let’s also create a state variable to store our pokemon data:
 
@@ -214,7 +226,7 @@ useEffect(() => {
 
 Awesome!
 
-Now all we have to do is just render the data. Since our state will be `null` if the pokemon data is not yet set, we can use that as a loading indicator.
+Now, all we have to do is render the data. Since our state will be `null` if the pokemon data is not yet set, we can use that as a loading indicator.
 
 ```ts
 return (
@@ -267,7 +279,7 @@ return (
 
 Now you should be able to see this:
 
-![https://i.imgur.com/gSHipFy.gif](https://i.imgur.com/gSHipFy.gif)
+![https://i.imgur.com/gSHipFy.gif](https://i.imgur.com/gSHipFy.gif align="left")
 
 We can clear the terminal screen before the data is shown. There is an NPM library called `[clear](https://www.npmjs.com/package/clear)` which we can use to achieve this.
 
@@ -334,15 +346,14 @@ const cli = meow(
 
 # 📤 Final Output
 
-After following with me, you should be able to see this!
+After following along with me, you should be able to see this!
 
-![https://i.imgur.com/5GiKwBQ.gif](https://i.imgur.com/5GiKwBQ.gif)
+![https://i.imgur.com/5GiKwBQ.gif](https://i.imgur.com/5GiKwBQ.gif align="left")
 
 You can find the source code for the repo here:
 
-%[https://github.com/carrotfarmer/pokecli]
+%[https://github.com/carrotfarmer/pokecli] 
 
-Isn’t it cool how all the hooks and other React features work in a CLI? 
-React sure is taking over the world 😉
+Isn’t it cool how all the hooks and other React features work in a CLI? React sure is taking over the world 😉
 
 I’ll see you in the next post! 👋
